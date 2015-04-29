@@ -1,18 +1,31 @@
 package testReflection;
 
 public class ExtensionTest {
+	@JsProperty(isReadOnly = true)
 	private String name;
+	
+	@JsProperty
+	private Home home;
+	class Home {
+		String address;
+		String postID;
+		Home(String addr, String pID){
+			address = addr;
+			postID = pID;
+		}
+	}
+	//@JsFunction(isConstructor = true)
 	ExtensionTest(String pname) {
 		name = pname;
 	}
 	
-	@JsAPI(type=JsAPI.TargetType.JS_METHOD)
+	@JsFunction
 	void printName() {
 		System.out.println(name);
 	}
 	
-	//@JsAPI(type=JsAPI.TargetType.JS_SETTER)
-	//@JsAPI(type=JsAPI.TargetType.JS_GETTER)
-	//@JsAPI(type=JsAPI.TargetType.JS_CONSTRUCTOR)
+	//@JsFunction(isEntryPoint = true)
+	//@JsFunction(isConstructor = true)
+	//@JsProperty(isEntryPoint = true)
 
 }
