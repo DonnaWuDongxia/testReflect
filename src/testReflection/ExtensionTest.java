@@ -1,10 +1,10 @@
 package testReflection;
 
 public class ExtensionTest {
-	@JsProperty(isReadOnly = true)
+	@JsAPI(isWritable = true)
 	private String name;
 	
-	@JsProperty
+	@JsAPI
 	private Home home;
 	class Home {
 		String address;
@@ -14,18 +14,18 @@ public class ExtensionTest {
 			postID = pID;
 		}
 	}
-	//@JsFunction(isConstructor = true)
+	@JsAPI(isEntryPoint = true)
 	ExtensionTest(String pname) {
 		name = pname;
 	}
 	
-	@JsFunction
+	@JsAPI
+	String getName() {
+		return name;
+	}
+	@JsAPI
 	void printName() {
 		System.out.println(name);
 	}
-	
-	//@JsFunction(isEntryPoint = true)
-	//@JsFunction(isConstructor = true)
-	//@JsProperty(isEntryPoint = true)
 
 }

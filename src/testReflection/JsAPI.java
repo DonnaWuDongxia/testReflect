@@ -14,16 +14,8 @@ import java.lang.annotation.Target;
  */
 @SuppressWarnings("javadoc")
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR})
 public @interface JsAPI {
-  /*  
-   * 4 types: method, setter, getter, constructor
-   */
-  public enum TargetType {
-    JS_METHOD,
-    JS_SETTER,
-    JS_GETTER,
-    JS_CONSTRUCTOR
-  }
-  public TargetType type() default TargetType.JS_METHOD;
+	public boolean isEntryPoint() default false;
+	public boolean isWritable() default false;
 }                                                                   
