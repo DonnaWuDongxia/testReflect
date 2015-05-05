@@ -17,5 +17,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR})
 public @interface JsAPI {
 	public boolean isEntryPoint() default false;
+	public boolean returnPromise() default false;
 	public boolean isWritable() default false;
 }                                                                   

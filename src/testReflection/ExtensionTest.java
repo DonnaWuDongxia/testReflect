@@ -23,8 +23,9 @@ public class ExtensionTest {
 	String getName() {
 		return name;
 	}
-	@JsAPI
-	void printName() {
+	
+	@JsAPI(returnPromise = true)
+	void getNameAsync(int callId) {
 		System.out.println(name);
 	}
 

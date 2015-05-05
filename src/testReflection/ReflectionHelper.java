@@ -22,6 +22,7 @@ class ReflectionHelper {
 	    Class<?> clazz;
 	    MemberType type;
 	    boolean isEntryPoint;
+	    boolean returnPromise;
 	    boolean isWritable;
 	    AccessibleObject accesser;
 	    
@@ -43,6 +44,7 @@ class ReflectionHelper {
 				  MemberInfo mInfo = new MemberInfo(myClass);
 				  JsAPI mAnno = a.getAnnotation(JsAPI.class);
 				  mInfo.isEntryPoint = mAnno.isEntryPoint();
+				  mInfo.returnPromise = mAnno.returnPromise();
 				  mInfo.isWritable = mAnno.isWritable();
 				  String name = ((Member) a).getName();
 				  mInfo.type = type;
